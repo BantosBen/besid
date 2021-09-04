@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="12dp">
+    <TextView
+        android:id="@+id/text_input_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Title here"
+        android:textColor="@color/input"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/text_input_prompt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Prompt message here:"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/text_input_edittext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/text_input_edittext"
+        app:layout_constraintTop_toBottomOf="@id/text_input_title"/>
+    <EditText
+        android:id="@+id/text_input_edittext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/text_input_prompt"
+        app:layout_constraintTop_toBottomOf="@id/text_input_title"
+        app:layout_constraintBottom_toBottomOf="@id/text_input_prompt" />
+
+    <TextView
+        android:id="@+id/text_input_positive_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="18dp"
+        android:gravity="center"
+        android:paddingVertical="6dp"
+        android:text="Submit"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toStartOf="@id/text_input_negative_button"
+        app:layout_constraintTop_toBottomOf="@id/text_input_edittext"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/text_input_active_button"/>
+    <TextView
+        android:id="@+id/text_input_negative_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Back"
+        android:textColor="@color/error"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="6dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/text_input_edittext"
+        app:layout_constraintBottom_toBottomOf="@id/text_input_positive_button"
+        app:layout_constraintStart_toEndOf="@id/text_input_positive_button"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

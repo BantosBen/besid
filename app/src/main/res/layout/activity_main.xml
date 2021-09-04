@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/btnInputDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:text="TextInput Dialog"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/input"/>
+    <Button
+        android:id="@+id/btnErrorDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:text="Error Dialog"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/error"/>
+    <Button
+        android:id="@+id/btnWarningDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:text="Warning Dialog"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/warning"/>
+    <Button
+        android:id="@+id/btnConfirmationDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:text="Confirmation Dialog"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/confirm"/>
+    <Button
+        android:id="@+id/btnInfoDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:text="Information Dialog"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/info"/>
+    <Button
+        android:id="@+id/btnSuccessDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:text="Success Dialog"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/success"/>
+    <Button
+        android:id="@+id/btnWatchDogDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:text="WatchDog Dialog"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/error"/>
+
+</LinearLayout>
