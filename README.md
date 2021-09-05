@@ -37,7 +37,7 @@ Next custom attributes provided:
 
 **For example:**
 ```
- new BESIDTextInputDialog.Builder(this)
+ AlertDialog dialog = new BESIDTextInputDialog.Builder(this)
          .setCancelable(true)
          .setMessage("Type target year")
          .setTitle("TextInput Dialog")
@@ -47,6 +47,6 @@ Next custom attributes provided:
              dialog.dismiss();
          })
          .setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD)
-         .build()
-         .show();
+         .build();
+dialog.show();
 ```
