@@ -15,7 +15,7 @@ allprojects {
 Step 2: Add the dependency
 ``` 
 dependencies {
-  implementation 'com.github.BantosBen:besid:v1.0'
+  implementation 'com.github.BantosBen:besid:1.0.1'
 }
 ```
 **Note:** The library requires minimum API level 22.
