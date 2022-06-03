@@ -27,7 +27,7 @@ dialog.show();
 ...
 dialog.dismiss();
 ```
-###Customization
+### Customization
 
 Use android styles to customize the dialog.
 Next custom attributes provided:
