@@ -2,30 +2,29 @@ package com.sanj.besid.confirmation;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDialog;
 
 import com.sanj.besid.R;
 import com.sanj.besid.exception.BESIDException;
 
 public class BESIDConfirmationDialog extends AlertDialog {
-    private CharSequence message, title;
-    private TextView txtTitle, txtMessage, negativeBtn,positiveBtn;
     private final Params params;
     private final AlertDialog dialog;
+    private CharSequence message, title;
+    private TextView txtTitle, txtMessage, negativeBtn, positiveBtn;
 
     private BESIDConfirmationDialog(@NonNull Params params) {
         super(params.context);
-        this.params=params;
+        this.params = params;
         this.message = params.messageId != 0 ? params.context.getString(params.messageId) : params.message;
         this.title = params.titleId != 0 ? params.context.getString(params.titleId) : params.title;
         setCancelable(params.cancelable);
-        dialog=this;
+        dialog = this;
     }
 
     @Override
@@ -45,6 +44,7 @@ public class BESIDConfirmationDialog extends AlertDialog {
             e.printStackTrace();
         }
     }
+
     private void initClicks() {
         negativeBtn.setText(params.negativeButtonText);
         positiveBtn.setText(params.positiveButtonText);
@@ -77,13 +77,19 @@ public class BESIDConfirmationDialog extends AlertDialog {
     private void initText() throws BESIDException {
         if (message != null && message.length() > 0) {
             txtMessage.setText(message);
-        }else{
+        } else {
             throw new BESIDException("dialog message cannot be null");
         }
-        if (title != null && title.length() > 0) {
+        if (title != null) {
             txtTitle.setText(title);
-        }else{
+        } else {
             throw new BESIDException("dialog title cannot be null");
+        }
+    }
+
+    public interface BESIDConfirmationInterface {
+        interface OnClickListener {
+            void onClick(AlertDialog dialog);
         }
     }
 
@@ -145,7 +151,7 @@ public class BESIDConfirmationDialog extends AlertDialog {
         }
 
         public AlertDialog build() throws BESIDException {
-            if (params.onNegativeButtonClickListener == null || params.onPositiveButtonClickListener==null) {
+            if (params.onNegativeButtonClickListener == null || params.onPositiveButtonClickListener == null) {
                 throw new BESIDException("didn't set both the buttons");
             }
             return new BESIDConfirmationDialog(params);
@@ -155,16 +161,10 @@ public class BESIDConfirmationDialog extends AlertDialog {
 
     private static class Params {
         public Context context;
-        public String message, title, negativeButtonText = "No, cancel", positiveButtonText = "Yes, continue";
+        public String message = "", title = "", negativeButtonText = "No, cancel", positiveButtonText = "Yes, continue";
         public int messageId = 0, titleId = 0;
-        public boolean cancelable = true; //default dialog behavior
-        public BESIDConfirmationInterface.OnClickListener onNegativeButtonClickListener = null;
-        public BESIDConfirmationInterface.OnClickListener onPositiveButtonClickListener = null;
-    }
-
-    public interface BESIDConfirmationInterface {
-        interface OnClickListener {
-            void onClick(AlertDialog dialog);
-        }
+        public boolean cancelable = true;
+        public BESIDConfirmationInterface.OnClickListener onNegativeButtonClickListener = AppCompatDialog::dismiss;
+        public BESIDConfirmationInterface.OnClickListener onPositiveButtonClickListener = AppCompatDialog::dismiss;
     }
 }

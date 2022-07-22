@@ -7,23 +7,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDialog;
 
 import com.sanj.besid.R;
 import com.sanj.besid.exception.BESIDException;
 
 public class BESIDErrorDialog extends AlertDialog {
-    private CharSequence message, title;
-    private TextView txtTitle, txtMessage, actionButton;
     private final Params params;
     private final AlertDialog dialog;
+    private CharSequence message, title;
+    private TextView txtTitle, txtMessage, actionButton;
 
     private BESIDErrorDialog(@NonNull Params params) {
         super(params.context);
-        this.params=params;
+        this.params = params;
         this.message = params.messageId != 0 ? params.context.getString(params.messageId) : params.message;
         this.title = params.titleId != 0 ? params.context.getString(params.titleId) : params.title;
         setCancelable(params.cancelable);
-        dialog=this;
+        dialog = this;
     }
 
     @Override
@@ -74,13 +75,19 @@ public class BESIDErrorDialog extends AlertDialog {
     private void initText() throws BESIDException {
         if (message != null && message.length() > 0) {
             txtMessage.setText(message);
-        }else{
+        } else {
             throw new BESIDException("dialog message cannot be null");
         }
-        if (title != null && title.length() > 0) {
+        if (title != null) {
             txtTitle.setText(title);
-        }else{
+        } else {
             throw new BESIDException("dialog title cannot be null");
+        }
+    }
+
+    public interface BESIDErrorDialogInterface {
+        interface OnClickListener {
+            void onClick(AlertDialog dialog);
         }
     }
 
@@ -123,6 +130,7 @@ public class BESIDErrorDialog extends AlertDialog {
             params.onClickListener = onClickListener;
             return this;
         }
+
         public Builder setActionButton(int buttonTextId, BESIDErrorDialogInterface.OnClickListener onClickListener) {
             params.buttonText = params.context.getString(buttonTextId);
             params.onClickListener = onClickListener;
@@ -141,14 +149,9 @@ public class BESIDErrorDialog extends AlertDialog {
 
     private static class Params {
         public Context context;
-        public String message, title,buttonText = "Okay";
+        public String message = "", title = "Error", buttonText = "Okay";
         public int messageId = 0, titleId = 0;
-        public boolean cancelable = true; //default dialog behavior
-        public BESIDErrorDialogInterface.OnClickListener onClickListener =null;
-    }
-    public interface BESIDErrorDialogInterface {
-        interface OnClickListener {
-            void onClick(AlertDialog dialog);
-        }
+        public boolean cancelable = false; //default dialog behavior
+        public BESIDErrorDialogInterface.OnClickListener onClickListener = AppCompatDialog::dismiss;
     }
 }
