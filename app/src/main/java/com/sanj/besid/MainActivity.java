@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             new BESIDTextInputDialog.Builder(this)
                     .setCancelable(true)
                     .setMessage("Type target year")
-                    .setTitle("TextInput Dialog")
+//                    .setTitle("TextInput Dialog")
                     .setNegativeButton("Back", AppCompatDialog::dismiss)
                     .setPositiveButton("Submit", (dialog, userInput) -> {
                         Toast.makeText(MainActivity.this, userInput, Toast.LENGTH_SHORT).show();
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             new BESIDErrorDialog.Builder(this)
                     .setCancelable(false)
                     .setMessage("Contact the developer on this issue")
-                    .setTitle("Failed to delete the account")
+//                    .setTitle("Failed to delete the account")
                     .setActionButton("Hmm, okay", AppCompatDialog::dismiss)
                     .build()
                     .show();
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             new BESIDWarningDialog.Builder(this)
                     .setCancelable(false)
                     .setMessage("Kindly ensure you have provided the right inputs. Please rectify and retry")
-                    .setTitle("Out of range!")
+//                    .setTitle("Out of range!")
                     .setActionButton("Retry", AppCompatDialog::dismiss)
                     .build()
                     .show();

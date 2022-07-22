@@ -4,8 +4,9 @@
     <color name="success">#378D3B</color>
     <color name="info">#1876D2</color>
     <color name="error">#D32F2F</color>
-    <color name="confirm">#7A1EA2</color>
+    <color name="confirm">#4FB9CD</color>
     <color name="input">#012B42</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+
 </resources>

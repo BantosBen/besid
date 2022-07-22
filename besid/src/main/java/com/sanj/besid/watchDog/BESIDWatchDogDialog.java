@@ -4,25 +4,23 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
 
 import com.sanj.besid.R;
 import com.sanj.besid.exception.BESIDException;
 
 public class BESIDWatchDogDialog extends AlertDialog {
-    private TextView actionButton,title,trace;
     private final Params params;
     private final AlertDialog dialog;
+    private TextView actionButton, title, trace;
 
     private BESIDWatchDogDialog(@NonNull Params params) {
         super(params.context);
-        this.params=params;
-        dialog=this;
+        this.params = params;
+        dialog = this;
     }
 
     @Override
@@ -41,18 +39,18 @@ public class BESIDWatchDogDialog extends AlertDialog {
 
     @SuppressLint("SetTextI18n")
     private void initText() {
-        String stringTrace= Log.getStackTraceString(params.throwable);
+        String stringTrace = Log.getStackTraceString(params.throwable);
         trace.setText(stringTrace);
-        String type=params.throwable.toString();
+        String type = params.throwable.toString();
         String errorType;
-        if(type.contains(":")){
-            String[] typeParts=type.split(":");
-            errorType=typeParts[0];
-        }else{
-            errorType=type;
+        if (type.contains(":")) {
+            String[] typeParts = type.split(":");
+            errorType = typeParts[0];
+        } else {
+            errorType = type;
         }
 
-        title.setText("ERROR TYPE: "+errorType);
+        title.setText("ERROR TYPE: " + errorType);
     }
 
     private void initClicks() {
