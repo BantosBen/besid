@@ -1,10 +1,13 @@
 # BESID (BEautiful and SImple Dialogs)
 [![](https://jitpack.io/v/BantosBen/besid.svg)](https://jitpack.io/#BantosBen/besid)
 
+[Demo Apk](https://raw.githubusercontent.com/BantosBen/besid/master/art/besid.apk)
+
+
 The library available in jitpack repository. You can get it using the following steps
 
 Step 1: Add it in your root build.gradle at the end of repositories:
-```
+```gradle
 allprojects {
 	repositories {
 		...
@@ -13,7 +16,7 @@ allprojects {
 }
 ```
 Step 2: Add the dependency
-``` 
+```gradle
 dependencies {
   implementation 'com.github.BantosBen:besid:1.0.2'
 }
@@ -36,7 +39,7 @@ Next custom attributes provided:
 * Action : listener
 
 **For example:**
-```
+```java
  AlertDialog dialog = new BESIDTextInputDialog.Builder(this)
          .setCancelable(true)
          .setMessage("Type target year")
